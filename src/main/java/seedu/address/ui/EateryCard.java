@@ -33,11 +33,7 @@ public class EateryCard extends UiPart<Region> {
     @FXML
     private Label id;
     @FXML
-    private Label phone;
-    @FXML
     private Label address;
-    @FXML
-    private Label email;
     @FXML
     private FlowPane tags;
 
@@ -46,9 +42,7 @@ public class EateryCard extends UiPart<Region> {
         this.eatery = eatery;
         id.setText(displayedIndex + ". ");
         name.setText(eatery.getName().fullName);
-        phone.setText(eatery.getPhone().value);
         address.setText(eatery.getAddress().value);
-        email.setText(eatery.getEmail().value);
         eatery.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));

@@ -27,7 +27,7 @@ public class AddCommandIntegrationTest {
 
     @Test
     public void execute_newEatery_success() {
-        Eatery validEatery = new EateryBuilder().build();
+        Eatery validEatery = new EateryBuilder().withName("New Person").build();
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         expectedModel.addEatery(validEatery);

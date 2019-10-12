@@ -12,9 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.eatery.Address;
 import seedu.address.model.eatery.Eatery;
-import seedu.address.model.eatery.Email;
 import seedu.address.model.eatery.Name;
-import seedu.address.model.eatery.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -25,8 +23,6 @@ class JsonAdaptedEatery {
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Eatery's %s field is missing!";
 
     private final String name;
-    private final String phone;
-    private final String email;
     private final String address;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
@@ -34,12 +30,10 @@ class JsonAdaptedEatery {
      * Constructs a {@code JsonAdaptedEatery} with the given eatery details.
      */
     @JsonCreator
-    public JsonAdaptedEatery(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("address") String address,
+    public JsonAdaptedEatery(@JsonProperty("name") String name,
+                             @JsonProperty("address") String address,
             @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
-        this.phone = phone;
-        this.email = email;
         this.address = address;
         if (tagged != null) {
             this.tagged.addAll(tagged);
@@ -51,8 +45,6 @@ class JsonAdaptedEatery {
      */
     public JsonAdaptedEatery(Eatery source) {
         name = source.getName().fullName;
-        phone = source.getPhone().value;
-        email = source.getEmail().value;
         address = source.getAddress().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
@@ -78,22 +70,6 @@ class JsonAdaptedEatery {
         }
         final Name modelName = new Name(name);
 
-        if (phone == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Phone.class.getSimpleName()));
-        }
-        if (!Phone.isValidPhone(phone)) {
-            throw new IllegalValueException(Phone.MESSAGE_CONSTRAINTS);
-        }
-        final Phone modelPhone = new Phone(phone);
-
-        if (email == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
-        }
-        if (!Email.isValidEmail(email)) {
-            throw new IllegalValueException(Email.MESSAGE_CONSTRAINTS);
-        }
-        final Email modelEmail = new Email(email);
-
         if (address == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
         }
@@ -103,7 +79,7 @@ class JsonAdaptedEatery {
         final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(eateryTags);
-        return new Eatery(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+        return new Eatery(modelName, modelAddress, modelTags);
     }
 
 }
