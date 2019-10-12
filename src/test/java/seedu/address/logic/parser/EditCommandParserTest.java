@@ -86,7 +86,7 @@ public class EditCommandParserTest {
     @Test
     public void parse_allFieldsSpecified_success() {
         Index targetIndex = INDEX_SECOND_EATERY;
-        String userInput = targetIndex.getOneBased()  + TAG_DESC_HUSBAND
+        String userInput = targetIndex.getOneBased() + TAG_DESC_HUSBAND
                 + ADDRESS_DESC_AMY + NAME_DESC_AMY + TAG_DESC_FRIEND;
 
         EditEateryDescriptor descriptor = new EditEateryDescriptorBuilder().withName(VALID_NAME_AMY)
