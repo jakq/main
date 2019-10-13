@@ -41,8 +41,6 @@ UserPrefs .up.|> ReadOnlyUserPrefs
 AddressBook *--> "1" UniqueEateryList
 UniqueEateryList o--> "*" Eatery
 Eatery *--> Name
-Eatery *--> Phone
-Eatery *--> Email
 Eatery *--> Address
 Eatery *--> "*" Tag
 
