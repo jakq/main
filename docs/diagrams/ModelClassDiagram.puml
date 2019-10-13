@@ -18,9 +18,7 @@ Class ReadOnlyUserPrefs
 Package Eatery {
 Class Eatery
 Class Address
-Class Email
 Class Name
-Class Phone
 Class UniqueEateryList
 }
 
@@ -43,8 +41,6 @@ UserPrefs .up.|> ReadOnlyUserPrefs
 AddressBook *--> "1" UniqueEateryList
 UniqueEateryList o--> "*" Eatery
 Eatery *--> Name
-Eatery *--> Phone
-Eatery *--> Email
 Eatery *--> Address
 Eatery *--> "*" Tag
 

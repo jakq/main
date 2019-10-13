@@ -15,7 +15,5 @@ UniqueEateryList o-right-> Eatery
 Eatery o-up-> "*" Tag
 
 Eatery *--> Name
-Eatery *--> Phone
-Eatery *--> Email
 Eatery *--> Address
 @enduml
