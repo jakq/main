@@ -116,6 +116,7 @@ public class EditCommand extends Command {
      */
     public static class EditEateryDescriptor {
         private Name name;
+        private boolean isOpen;
         private Address address;
         private Set<Tag> tags;
 

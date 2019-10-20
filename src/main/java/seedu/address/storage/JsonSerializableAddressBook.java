@@ -19,7 +19,7 @@ import seedu.address.model.eatery.Eatery;
 @JsonRootName(value = "addressbook")
 class JsonSerializableAddressBook {
 
-    public static final String MESSAGE_DUPLICATE_EATERY = "Eaterys list contains duplicate eatery(ies).";
+    public static final String MESSAGE_DUPLICATE_EATERY = "Eateries list contains duplicate eatery(ies).";
 
     private final List<JsonAdaptedEatery> eateries = new ArrayList<>();
 

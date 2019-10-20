@@ -2,6 +2,8 @@ package seedu.address.testutil;
 
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ISOPEN_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_ISOPEN_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
@@ -19,34 +21,33 @@ import seedu.address.model.eatery.Eatery;
  */
 public class TypicalEateries {
 
-    public static final Eatery ALICE = new EateryBuilder().withName("Alice Pauline")
+    public static final Eatery ALICE = new EateryBuilder().withName("Alice Pauline").withIsOpen(true)
             .withAddress("123, Jurong West Ave 6, #08-111")
             .withTags("friends").build();
-    public static final Eatery BENSON = new EateryBuilder().withName("Benson Meier")
+    public static final Eatery BENSON = new EateryBuilder().withName("Benson Meier").withIsOpen(true)
             .withAddress("311, Clementi Ave 2, #02-25")
-
             .withTags("owesMoney", "friends").build();
-    public static final Eatery CARL = new EateryBuilder().withName("Carl Kurz")
+    public static final Eatery CARL = new EateryBuilder().withName("Carl Kurz").withIsOpen(true)
             .withAddress("wall street").build();
-    public static final Eatery DANIEL = new EateryBuilder().withName("Daniel Meier")
+    public static final Eatery DANIEL = new EateryBuilder().withName("Daniel Meier").withIsOpen(true)
             .withAddress("10th street").withTags("friends").build();
-    public static final Eatery ELLE = new EateryBuilder().withName("Elle Meyer")
+    public static final Eatery ELLE = new EateryBuilder().withName("Elle Meyer").withIsOpen(true)
             .withAddress("michegan ave").build();
-    public static final Eatery FIONA = new EateryBuilder().withName("Fiona Kunz")
+    public static final Eatery FIONA = new EateryBuilder().withName("Fiona Kunz").withIsOpen(true)
             .withAddress("little tokyo").build();
-    public static final Eatery GEORGE = new EateryBuilder().withName("George Best")
+    public static final Eatery GEORGE = new EateryBuilder().withName("George Best").withIsOpen(true)
             .withAddress("4th street").build();
 
     // Manually added
-    public static final Eatery HOON = new EateryBuilder().withName("Hoon Meier")
+    public static final Eatery HOON = new EateryBuilder().withName("Hoon Meier").withIsOpen(true)
             .withAddress("little india").build();
-    public static final Eatery IDA = new EateryBuilder().withName("Ida Mueller")
+    public static final Eatery IDA = new EateryBuilder().withName("Ida Mueller").withIsOpen(true)
             .withAddress("chicago ave").build();
 
     // Manually added - Eatery's details found in {@code CommandTestUtil}
-    public static final Eatery AMY = new EateryBuilder().withName(VALID_NAME_AMY)
+    public static final Eatery AMY = new EateryBuilder().withName(VALID_NAME_AMY).withIsOpen(VALID_ISOPEN_AMY)
             .withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
-    public static final Eatery BOB = new EateryBuilder().withName(VALID_NAME_BOB)
+    public static final Eatery BOB = new EateryBuilder().withName(VALID_NAME_BOB).withIsOpen(VALID_ISOPEN_BOB)
             .withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
             .build();
 

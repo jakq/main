@@ -18,11 +18,13 @@ public class EateryBuilder {
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
     private Name name;
+    private boolean isOpen;
     private Address address;
     private Set<Tag> tags;
 
     public EateryBuilder() {
         name = new Name(DEFAULT_NAME);
+        isOpen = true;
         address = new Address(DEFAULT_ADDRESS);
         tags = new HashSet<>();
     }
@@ -32,6 +34,7 @@ public class EateryBuilder {
      */
     public EateryBuilder(Eatery eateryToCopy) {
         name = eateryToCopy.getName();
+        isOpen = eateryToCopy.getIsOpen();
         address = eateryToCopy.getAddress();
         tags = new HashSet<>(eateryToCopy.getTags());
     }
@@ -41,6 +44,14 @@ public class EateryBuilder {
      */
     public EateryBuilder withName(String name) {
         this.name = new Name(name);
+        return this;
+    }
+
+    /**
+     * Sets the {@code isOpen} of the {@code Eatery} that we are building.
+     */
+    public EateryBuilder withIsOpen(boolean isOpen) {
+        this.isOpen = isOpen;
         return this;
     }
 
@@ -61,7 +72,11 @@ public class EateryBuilder {
     }
 
     public Eatery build() {
-        return new Eatery(name, address, tags);
+        return new Eatery(name, isOpen, address, tags);
+    }
+
+    public Eatery buildClose() {
+        return new Eatery(name, false, address, tags);
     }
 
 }
