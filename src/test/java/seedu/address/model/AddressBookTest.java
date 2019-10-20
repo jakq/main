@@ -106,7 +106,6 @@ public class AddressBookTest {
     public void getEateryList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> addressBook.getEateryList().remove(0));
     }
-    
     /**
      * A stub ReadOnlyAddressBook whose eateries list can violate interface constraints.
      */

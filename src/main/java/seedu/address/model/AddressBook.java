@@ -105,8 +105,8 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     @Override
     public String toString() {
-        return eateries.asUnmodifiableObservableList().size() + " eateries";
-        // TODO: refine later
+        return String.format("%d eateries: %s", eateries.asUnmodifiableObservableList().size(),
+                eateries.asUnmodifiableObservableList());
     }
 
     @Override
@@ -125,4 +125,5 @@ public class AddressBook implements ReadOnlyAddressBook {
     public int hashCode() {
         return eateries.hashCode();
     }
+
 }

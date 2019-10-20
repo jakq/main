@@ -7,8 +7,6 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import seedu.address.model.tag.Tag;
-
 /**
  * Represents a Eatery in the address book.
  * Guarantees: details are present and not null, field values are validated, immutable.
@@ -20,17 +18,19 @@ public class Eatery {
     private final boolean isOpen;
     // Data fields
     private final Address address;
-    private final Set<Tag> tags = new HashSet<>();
+    private final Category category;
+    private Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      * Used when adding a eatery for the first time
      */
-    public Eatery(Name name, Address address, Set<Tag> tags) {
+    public Eatery(Name name, Address address, Category category, Set<Tag> tags) {
         requireAllNonNull(name, address, tags);
         this.name = name;
         this.isOpen = true;
         this.address = address;
+        this.category = category;
         this.tags.addAll(tags);
     }
 
@@ -38,12 +38,13 @@ public class Eatery {
      * Every field must be present and not null.
      * Used for editing open or close
      */
-    public Eatery(Name name, boolean isOpen, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, address, tags);
+    public Eatery(Name name, boolean isOpen, Address address, Category category, Set<Tag> tags) {
+        requireAllNonNull(name, address, category, tags);
         this.name = name;
         this.isOpen = isOpen;
         this.address = address;
-        this.tags.addAll(tags);
+        this.category = category;
+        this.tags = tags;
     }
 
     public Name getName() {
@@ -56,6 +57,10 @@ public class Eatery {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 
     /**
@@ -97,6 +102,7 @@ public class Eatery {
         return otherEatery.getName().equals(getName())
                 && otherEatery.getIsOpen() == (getIsOpen())
                 && otherEatery.getAddress().equals(getAddress())
+                && otherEatery.getCategory().equals(getCategory())
                 && otherEatery.getTags().equals(getTags());
     }
 
@@ -114,6 +120,8 @@ public class Eatery {
                 .append(getIsOpen())
                 .append(" Address: ")
                 .append(getAddress())
+                .append(" Category: ")
+                .append(getCategory())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

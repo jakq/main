@@ -11,9 +11,10 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.eatery.Address;
+import seedu.address.model.eatery.Category;
 import seedu.address.model.eatery.Eatery;
 import seedu.address.model.eatery.Name;
-import seedu.address.model.tag.Tag;
+import seedu.address.model.eatery.Tag;
 
 /**
  * Sets the isOpen field of an existing eatery in the address book to false.
@@ -77,8 +78,9 @@ public class CloseCommand extends Command {
 
         Name name = eateryToClose.getName();
         Address address = eateryToClose.getAddress();
+        Category category = eateryToClose.getCategory();
         Set<Tag> tags = eateryToClose.getTags();
 
-        return new Eatery(name, false, address, tags);
+        return new Eatery(name, false, address, category, tags);
     }
 }
