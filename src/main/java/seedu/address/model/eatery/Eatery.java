@@ -39,7 +39,7 @@ public class Eatery {
      * Used for editing open or close
      */
     public Eatery(Name name, boolean isOpen, Address address, Category category, Set<Tag> tags) {
-        requireAllNonNull(name, address, category, tags);
+        requireAllNonNull(name, address, category);
         this.name = name;
         this.isOpen = isOpen;
         this.address = address;
