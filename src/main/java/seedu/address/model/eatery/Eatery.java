@@ -26,7 +26,7 @@ public class Eatery {
      * Used when adding a eatery for the first time
      */
     public Eatery(Name name, Address address, Category category, Set<Tag> tags) {
-        requireAllNonNull(name, address, tags);
+        requireAllNonNull(name, address, category, tags);
         this.name = name;
         this.isOpen = true;
         this.address = address;

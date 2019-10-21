@@ -91,8 +91,4 @@ public class EateryBuilder {
     public Eatery build() {
         return new Eatery(name, isOpen, address, category, tags);
     }
-
-    public Eatery buildClose() {
-        return new Eatery(name, false, address, category, tags);
-    }
 }
