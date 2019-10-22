@@ -130,6 +130,7 @@ public class AddCommandTest {
             throw new AssertionError("This method should not be called.");
         }
 
+        @Override
         public void deleteEatery(Eatery target) {
             throw new AssertionError("This method should not be called.");
         }

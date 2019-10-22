@@ -51,11 +51,9 @@ public class CloseCommand extends Command {
         }
 
         Eatery eateryToClose = lastShownList.get(targetIndex.getZeroBased());
-
         if (!eateryToClose.getIsOpen()) {
             throw new CommandException(MESSAGE_EATERY_ALREADY_CLOSED);
         }
-
         Eatery closedEatery = createClosedEatery(eateryToClose);
 
         model.setEatery(eateryToClose, closedEatery);
