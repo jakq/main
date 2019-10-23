@@ -181,18 +181,15 @@ image::add-ad.PNG[]
 
 ==== Design Considerations
 ===== Aspect: How Add executes
-* Alternative 1 (current choice): Making Tag field not final.
-Pros:
+* **Alternative 1 (current choice):** Making Tag field not final.
+** Pros:
 *** Easily implemented.
 *** More user-friendly as users would most likely want to delete or add new tags.
-Cons:
-*** Does not follow the logic of the original Address Book 3 application. More code needs to be refactored.
+** Cons: Does not follow the logic of the original Address Book 3 application. More code needs to be refactored.
 
-* Alternative 2: Making Tag field final.
-Pros:
-*** Follows the logic of the original Address Book 3 application; don't need to refactor more code.
-Cons:
-*** Not as user-friendly.
+* **Alternative 2:** Making Tag field final.
+** Pros: Follows the logic of the original Address Book 3 application; don't need to refactor more code.
+** Cons: Not as user-friendly.
 // end ::add[]
 
 // tag::revieweatery[]
@@ -217,7 +214,7 @@ If the index given is not a valid index (ie, out of bounds or negative), it will
 
 Step 3. The user executes `open 1` to get the complete details of the first Eatery.
 
-Ste] 4. The user then decides to execute `edit review 1 ...` to edit the first review of the Eatery opened in the previous step. This calls the `EatMe#editcommand()`.
+Step 4. The user then decides to execute `edit review 1 ...` to edit the first review of the Eatery opened in the previous step. This calls the `EatMe#editcommand()`.
 
 ===== Aspect: How review and edit review executes
 
@@ -245,7 +242,7 @@ Given below is an example usage scenario and how the close mechanism behaves at 
 
 Step 1. The user launches the application for the first time. The `AddressBook` will be initialized with the initial json data stored.
 
-Step 2. The user executes `close `1 command to close the 1st Eatery in the address book.
+Step 2. The user executes `close 1` command to close the 1st Eatery in the address book.
 [NOTE]
 If the index given is not a valid index (ie, out of bounds or negative), it will return an error to the user rather than attempting to close the Eatery.
 
