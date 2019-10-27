@@ -81,7 +81,9 @@ public class ReopenCommand extends Command {
         Address address = eateryToReopen.getAddress();
         Category category = eateryToReopen.getCategory();
         Set<Tag> tags = eateryToReopen.getTags();
+        Eatery reopenedEatery = new Eatery(name, address, category, tags);
+        reopenedEatery.setReviews(eateryToReopen.getReviews());
 
-        return new Eatery(name, true, address, category, tags);
+        return reopenedEatery;
     }
 }
