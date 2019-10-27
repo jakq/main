@@ -36,7 +36,7 @@ public class CloseCommandTest {
         String expectedMessage = String.format(CloseCommand.MESSAGE_CLOSED_EATERY_SUCCESS, closedEatery);
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), model.getFeedList(), new UserPrefs());
-        expectedModel.setEatery(model.getFilteredEateryList().get(0), closedEatery);
+        expectedModel.setEatery(model.getFilteredEateryList().get(INDEX_FIRST_EATERY.getZeroBased()), closedEatery);
 
         assertCommandSuccess(closeCommand, model, expectedMessage, expectedModel);
     }

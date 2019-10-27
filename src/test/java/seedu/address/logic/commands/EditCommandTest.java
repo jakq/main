@@ -43,7 +43,7 @@ public class EditCommandTest {
 
         Model expectedModel =
                 new ModelManager(new AddressBook(model.getAddressBook()), model.getFeedList(), new UserPrefs());
-        expectedModel.setEatery(model.getFilteredEateryList().get(0), editedEatery);
+        expectedModel.setEatery(model.getFilteredEateryList().get(INDEX_FIRST_EATERY.getZeroBased()), editedEatery);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
