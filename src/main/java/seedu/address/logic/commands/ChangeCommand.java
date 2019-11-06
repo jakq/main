@@ -30,7 +30,7 @@ public class ChangeCommand extends Command {
     private final Path toChange;
 
     /**
-     * Creates a ChangeCommand to add the specified {@code Path}
+     * Creates a ChangeCommand to add the specified {@code Path}.
      */
     public ChangeCommand(Path addressBookFilePath) {
         requireNonNull(addressBookFilePath);
@@ -55,6 +55,12 @@ public class ChangeCommand extends Command {
         return new CommandResult(String.format(MESSAGE_SUCCESS_CHANGE, toChange));
     }
 
+    /**
+     * Checks if the file already exists in the data path.
+     * Returns true if such a file exists already.
+     * @param toChange
+     * @return
+     */
     protected boolean checkFile(Path toChange) {
         File folder = new File("data");
         File[] listOfFiles = folder.listFiles();
