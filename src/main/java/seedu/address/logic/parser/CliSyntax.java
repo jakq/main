@@ -14,4 +14,5 @@ public class CliSyntax {
     public static final Prefix PREFIX_COST = new Prefix("\\p");
     public static final Prefix PREFIX_RATING = new Prefix("\\r");
     public static final Prefix PREFIX_DATE = new Prefix("\\w");
+    public static final Prefix PREFIX_FILE = new Prefix("\\f");
 }

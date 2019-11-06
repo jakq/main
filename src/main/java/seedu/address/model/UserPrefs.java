@@ -1,12 +1,12 @@
 package seedu.address.model;
 
-import static java.util.Objects.requireNonNull;
+import seedu.address.commons.core.GuiSettings;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-import seedu.address.commons.core.GuiSettings;
+import static java.util.Objects.requireNonNull;
 
 /**
  * Represents User's preferences.
@@ -14,7 +14,7 @@ import seedu.address.commons.core.GuiSettings;
 public class UserPrefs implements ReadOnlyUserPrefs {
 
     private GuiSettings guiSettings = new GuiSettings();
-    private Path addressBookFilePath = Paths.get("data", "addressbook.json");
+    private Path addressBookFilePath = Paths.get("data", System.getProperty("user.name") + ".json");
     private Path feedListFilePath = Paths.get("data", "feedlist.json");
 
     /**

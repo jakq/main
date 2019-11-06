@@ -1,12 +1,12 @@
 package seedu.address.logic.commands;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.feed.Feed;
+
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 
 /**
  * Adds a feed to the feed list.
@@ -15,7 +15,7 @@ public class AddFeedCommand extends Command {
 
     public static final String COMMAND_WORD = "addfeed";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a feed to the feed list."
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a feed to the feed list. "
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_ADDRESS + "ADDRESS "
