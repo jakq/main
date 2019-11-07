@@ -5,29 +5,29 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_FILE;
 
 import java.nio.file.Paths;
 
-import seedu.address.logic.commands.ChangeCommand;
+import seedu.address.logic.commands.LoadCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
  * Parses input arguments and creates a new ChangeCommand object
  */
-public class ChangeCommandParser implements Parser<ChangeCommand> {
+public class LoadCommandParser implements Parser<LoadCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the ChangeCommand
      * and returns a ChangeCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
-    public ChangeCommand parse(String args) throws ParseException {
+    public LoadCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_FILE);
         if (!isPrefixPresent(argMultimap, PREFIX_FILE)
                 || !argMultimap.getPreamble().isEmpty()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ChangeCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, LoadCommand.MESSAGE_USAGE));
         }
         args = ParserUtil.parseFile(argMultimap.getValue(PREFIX_FILE).get());
 
-        return new ChangeCommand(Paths.get("data", args));
+        return new LoadCommand(Paths.get("data", args));
     }
 
     /**

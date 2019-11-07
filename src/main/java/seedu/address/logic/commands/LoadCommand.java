@@ -14,7 +14,7 @@ import seedu.address.model.UserPrefs;
 /**
  * Lists all persons in the address book to the user.
  */
-public class ChangeCommand extends Command {
+public class LoadCommand extends Command {
 
     public static final String COMMAND_WORD = "change";
 
@@ -32,12 +32,12 @@ public class ChangeCommand extends Command {
     /**
      * Creates a ChangeCommand to add the specified {@code Path}.
      */
-    public ChangeCommand(Path addressBookFilePath) {
+    public LoadCommand(Path addressBookFilePath) {
         requireNonNull(addressBookFilePath);
         toChange = addressBookFilePath;
     }
 
-    public ChangeCommand() {
+    public LoadCommand() {
         toChange = Paths.get("data", System.getProperty("user.name") + ".json");
     }
 
@@ -61,7 +61,7 @@ public class ChangeCommand extends Command {
      * @param toChange
      * @return
      */
-    protected boolean checkFile(Path toChange) {
+    private static boolean checkFile(Path toChange) {
         File folder = new File("data");
         File[] listOfFiles = folder.listFiles();
         boolean exists = false;

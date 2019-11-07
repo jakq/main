@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AddFeedCommand;
 import seedu.address.logic.commands.AddTagCommand;
-import seedu.address.logic.commands.ChangeCommand;
+import seedu.address.logic.commands.LoadCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.CloseCommand;
 import seedu.address.logic.commands.Command;
@@ -114,12 +114,12 @@ public class AddressBookParser {
         case RemoveTagCommand.COMMAND_WORD:
             return new RemoveTagCommandParser().parse(arguments);
 
-        case ChangeCommand.COMMAND_WORD:
+        case LoadCommand.COMMAND_WORD:
             if (arguments.equals("")) {
-                return new ChangeCommand();
+                return new LoadCommand();
             } else {
                 System.out.println(arguments);
-                return new ChangeCommandParser().parse(arguments);
+                return new LoadCommandParser().parse(arguments);
             }
 
         default:
