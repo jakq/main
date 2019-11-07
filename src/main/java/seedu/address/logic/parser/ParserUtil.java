@@ -11,7 +11,7 @@ import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
-import seedu.address.logic.commands.ChangeCommand;
+import seedu.address.logic.commands.LoadCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.eatery.Address;
 import seedu.address.model.eatery.Category;
@@ -172,7 +172,7 @@ public class ParserUtil {
         StringBuilder trimmedFile = new StringBuilder(file.trim());
         boolean emptyString = file.isEmpty();
         if (emptyString) {
-            throw new ParseException(ChangeCommand.FILE_CONSTRAINTS);
+            throw new ParseException(LoadCommand.FILE_CONSTRAINTS);
         }
         boolean lengthMoreThanFive = file.length() > 5;
         boolean trailingJsonFormat = lengthMoreThanFive
