@@ -1,5 +1,14 @@
 package seedu.address.logic.parser;
 
+import static java.util.Objects.requireNonNull;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.commands.ChangeCommand;
@@ -9,16 +18,6 @@ import seedu.address.model.eatery.Category;
 import seedu.address.model.eatery.Name;
 import seedu.address.model.eatery.Review;
 import seedu.address.model.eatery.Tag;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import static java.util.Objects.requireNonNull;
-
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -176,9 +175,9 @@ public class ParserUtil {
             throw new ParseException(ChangeCommand.FILE_CONSTRAINTS);
         }
         boolean lengthMoreThanFive = file.length() > 5;
-        boolean trailingJSONFormat = lengthMoreThanFive &&
-                file.substring(file.length() - 5).equalsIgnoreCase(".json");
-        if (!trailingJSONFormat) {
+        boolean trailingJsonFormat = lengthMoreThanFive
+                && file.substring(file.length() - 5).equalsIgnoreCase(".json");
+        if (!trailingJsonFormat) {
             trimmedFile.append(".json");
         }
         return trimmedFile.toString();
