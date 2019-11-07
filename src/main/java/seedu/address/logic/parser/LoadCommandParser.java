@@ -3,6 +3,7 @@ package seedu.address.logic.parser;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FILE;
 
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import seedu.address.logic.commands.LoadCommand;
@@ -26,8 +27,8 @@ public class LoadCommandParser implements Parser<LoadCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, LoadCommand.MESSAGE_USAGE));
         }
         args = ParserUtil.parseFile(argMultimap.getValue(PREFIX_FILE).get());
-
-        return new LoadCommand(Paths.get("data", args));
+        Path fileToLoad = Paths.get("data", args);
+        return new LoadCommand(fileToLoad);
     }
 
     /**

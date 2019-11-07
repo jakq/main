@@ -24,12 +24,17 @@ public class ParserUtilTest {
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_CATEGORY = "0fish";
     private static final String INVALID_TAG = "#friend";
+    private static final String INVALID_FILE = "";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_ADDRESS = "123 Main Street #0505";
     private static final String VALID_CATEGORY = "Chinese";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
+    private static final String VALID_FILE_1 = "utown";
+    private static final String VALID_FILE_2 = "helloworld";
+    private static final String VALID_FILE_3 = "EatMe.json";
+    private static final String VALID_FILE_4 = "extra.JSON";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -166,5 +171,34 @@ public class ParserUtilTest {
         Set<Tag> expectedTagSet = new HashSet<Tag>(Arrays.asList(new Tag(VALID_TAG_1), new Tag(VALID_TAG_2)));
 
         assertEquals(expectedTagSet, actualTagSet);
+    }
+
+    @Test
+    public void parseFile_withEmptyString() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseFile(INVALID_FILE));
+    }
+
+    @Test
+    public void parseFile_withNameLessThanSixAndNotJsonFormatted_returnsJsonFormatted() throws ParseException {
+        String expectedFile = "utown.json";
+        assertEquals(expectedFile, ParserUtil.parseFile(VALID_FILE_1));
+    }
+
+    @Test
+    public void parseFile_withNameMoreThanFiveAndNotJsonFormatted_returnsJsonFormatted() throws ParseException {
+        String expectedFile = "helloworld.json";
+        assertEquals(expectedFile, ParserUtil.parseFile(VALID_FILE_2));
+    }
+
+    @Test
+    public void parseFile_withNameJsonFormatted_returnsUnchanged() throws ParseException {
+        String expectedFile = "EatMe.json";
+        assertEquals(expectedFile, ParserUtil.parseFile(VALID_FILE_3));
+    }
+
+    @Test
+    public void parseFile_withNameAllCapsJsonFormatted_returnsUnchanged() throws ParseException {
+        String expectedFile = "extra.JSON";
+        assertEquals(expectedFile, ParserUtil.parseFile(VALID_FILE_4));
     }
 }

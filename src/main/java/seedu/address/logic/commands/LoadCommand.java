@@ -16,18 +16,18 @@ import seedu.address.model.UserPrefs;
  */
 public class LoadCommand extends Command {
 
-    public static final String COMMAND_WORD = "change";
+    public static final String COMMAND_WORD = "load";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Changes the EatMe.json file being read. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Loads the EatMe.json file being read. "
             + "Parameters: "
             + PREFIX_FILE + " FILENAME.json";
 
-    public static final String MESSAGE_SUCCESS_CHANGE = "File Changed: %1$s. Please relaunch EatMe!";
+    public static final String MESSAGE_SUCCESS_CHANGE = "File Loaded: %1$s. Please relaunch EatMe!";
     public static final String MESSAGE_ALREADY_OPENED = "%1$s is already opened.";
     public static final String MESSAGE_NOT_FOUND = "Please check that %1$s exists.";
     public static final String FILE_CONSTRAINTS = "\\f must be followed by a file name.";
 
-    private final Path toChange;
+    public final Path toChange;
 
     /**
      * Creates a ChangeCommand to add the specified {@code Path}.
@@ -53,6 +53,13 @@ public class LoadCommand extends Command {
         userPrefs.setAddressBookFilePath(toChange);
         model.setUserPrefs(userPrefs);
         return new CommandResult(String.format(MESSAGE_SUCCESS_CHANGE, toChange));
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof LoadCommand // instanceof handles nulls
+                && toChange.equals(((LoadCommand) other).toChange));
     }
 
     /**
