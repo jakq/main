@@ -29,8 +29,7 @@ public class LoadCommandParserTest {
 
     @Test
     public void parse_noFieldsSpecified_success() {
-        Path path = Paths.get("data", System.getProperty("user.name") + ".json");
-        LoadCommand expectedCommand = new LoadCommand(path);
+        LoadCommand expectedCommand = new LoadCommand();
 
         assertParseSuccess(parser, "", expectedCommand);
     }
