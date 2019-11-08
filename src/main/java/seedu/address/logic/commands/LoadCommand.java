@@ -18,9 +18,9 @@ public class LoadCommand extends Command {
 
     public static final String COMMAND_WORD = "load";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Loads the specified user profile. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Loads the specified user profile.\n"
             + "Parameters: " + PREFIX_USER + " username\n"
-            + "Example: " + COMMAND_WORD + " john";
+            + "Example: " + COMMAND_WORD + " " + PREFIX_USER + " john";
 
     public static final String MESSAGE_SUCCESS_LOADED = "User profile loaded: %1$s. Please relaunch EatMe!";
     public static final String MESSAGE_ALREADY_LOADED = "%1$s is already loaded.";
