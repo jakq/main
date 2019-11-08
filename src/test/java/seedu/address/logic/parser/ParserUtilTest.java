@@ -2,6 +2,7 @@ package seedu.address.logic.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_FILE_NO_PREFIX_JOHN;
 import static seedu.address.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EATERY;
@@ -24,17 +25,12 @@ public class ParserUtilTest {
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_CATEGORY = "0fish";
     private static final String INVALID_TAG = "#friend";
-    private static final String INVALID_FILE = "";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_ADDRESS = "123 Main Street #0505";
     private static final String VALID_CATEGORY = "Chinese";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
-    private static final String VALID_FILE_1 = "utown";
-    private static final String VALID_FILE_2 = "helloworld";
-    private static final String VALID_FILE_3 = "EatMe.json";
-    private static final String VALID_FILE_4 = "extra.JSON";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -174,31 +170,17 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseFile_withEmptyString() {
-        assertThrows(ParseException.class, () -> ParserUtil.parseFile(INVALID_FILE));
+    public void parseFile_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseFile(null));
     }
 
     @Test
-    public void parseFile_withNameLessThanSixAndNotJsonFormatted_returnsJsonFormatted() throws ParseException {
-        String expectedFile = "utown.json";
-        assertEquals(expectedFile, ParserUtil.parseFile(VALID_FILE_1));
+    public void parseFile_withValidName_returnsUnchanged() {
+        assertEquals(VALID_FILE_NO_PREFIX_JOHN, ParserUtil.parseFile(VALID_FILE_NO_PREFIX_JOHN));
     }
 
     @Test
-    public void parseFile_withNameMoreThanFiveAndNotJsonFormatted_returnsJsonFormatted() throws ParseException {
-        String expectedFile = "helloworld.json";
-        assertEquals(expectedFile, ParserUtil.parseFile(VALID_FILE_2));
-    }
-
-    @Test
-    public void parseFile_withNameJsonFormatted_returnsUnchanged() throws ParseException {
-        String expectedFile = "EatMe.json";
-        assertEquals(expectedFile, ParserUtil.parseFile(VALID_FILE_3));
-    }
-
-    @Test
-    public void parseFile_withNameAllCapsJsonFormatted_returnsUnchanged() throws ParseException {
-        String expectedFile = "extra.JSON";
-        assertEquals(expectedFile, ParserUtil.parseFile(VALID_FILE_4));
+    public void parseFile_withInvalidName_returnsFormatted() {
+        assertEquals(VALID_FILE_NO_PREFIX_JOHN, ParserUtil.parseFile("john"));
     }
 }

@@ -115,12 +115,7 @@ public class AddressBookParser {
             return new RemoveTagCommandParser().parse(arguments);
 
         case LoadCommand.COMMAND_WORD:
-            if (arguments.equals("")) {
-                return new LoadCommand();
-            } else {
-                System.out.println(arguments);
-                return new LoadCommandParser().parse(arguments);
-            }
+            return new LoadCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

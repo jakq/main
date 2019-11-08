@@ -1,7 +1,7 @@
 {
   "eateries" : [ {
     "name" : "Ali Nachia Briyani Dam",
-    "isOpen" : "true",
+    "isOpen" : "false",
     "address" : "5 Tanjong Pagar Plaza, #02-04, Singapore 081005",
     "category" : "Malay",
     "reviews" : [ ],
@@ -41,20 +41,6 @@
     "category" : "Chinese",
     "reviews" : [ ],
     "tagged" : [ "dessert" ]
-  }, {
-    "name" : "biap",
-    "isOpen" : "true",
-    "address" : "star",
-    "category" : "Chinese",
-    "reviews" : [ ],
-    "tagged" : [ ]
-  }, {
-    "name" : "springleaf",
-    "isOpen" : "true",
-    "address" : "bedok",
-    "category" : "indian",
-    "reviews" : [ ],
-    "tagged" : [ ]
   } ],
   "todos" : [ ]
 }

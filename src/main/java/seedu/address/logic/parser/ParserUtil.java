@@ -11,7 +11,6 @@ import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
-import seedu.address.logic.commands.LoadCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.eatery.Address;
 import seedu.address.model.eatery.Category;
@@ -29,6 +28,7 @@ public class ParserUtil {
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
+     *
      * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
      */
     public static Index parseIndex(String oneBasedIndex) throws ParseException {
@@ -112,7 +112,7 @@ public class ParserUtil {
     }
 
     /**
-     *Trims leading and trailing white spaces.
+     * Trims leading and trailing white spaces.
      *
      * @param reviewDescription
      * @throws ParseException if the given {@code reviewDescription} is invalid.
@@ -165,22 +165,11 @@ public class ParserUtil {
     }
 
     /**
-     * Parses {@code file} to corresponding .json format.
+     * Parses {@code file} into corresponding JSON filename.
      */
-    public static String parseFile(String file) throws ParseException {
+    public static String parseFile(String file) {
         requireNonNull(file);
-        StringBuilder trimmedFile = new StringBuilder(file.trim());
-        boolean emptyString = file.isEmpty();
-        if (emptyString) {
-            throw new ParseException(LoadCommand.FILE_CONSTRAINTS);
-        }
-        boolean lengthMoreThanFive = file.length() > 5;
-        boolean trailingJsonFormat = lengthMoreThanFive
-                && file.substring(file.length() - 5).equalsIgnoreCase(".json");
-        if (!trailingJsonFormat) {
-            trimmedFile.append(".json");
-        }
-        return trimmedFile.toString();
+        return file.endsWith(".json") ? file : file + ".json";
     }
 
 }
