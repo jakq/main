@@ -535,11 +535,11 @@ If the index given points to an Eatery already closed (ie, 1 in this situation),
 
 The following sequence diagram shows how the `close` command works:
 
-image:CloseSequenceDiagram.png[]
+image:CloseSequenceDiagram.png[width=600]
 
 The following activity diagram summarizes what happens when a user executes a new `close` command:
 
-image:CloseCommitActivityDiagram.png[]
+image:CloseCommitActivityDiagram.png[width=400]
 
 ==== Design Considerations
 ===== Aspect: How Close executes
@@ -587,11 +587,11 @@ If the index given points to an Eatery already reopened (ie, 1 in this situation
 
 The following sequence diagram shows how the `reopen` command works:
 
-image:ReopenSequenceDiagram.png[]
+image:ReopenSequenceDiagram.png[width=600]
 
 The following activity diagram summarizes what happens when a user executes a new `reopen` command:
 
-image:ReopenCommitActivityDiagram.png[]
+image:ReopenCommitActivityDiagram.png[width=400]
 
 ==== Design Considerations
 ===== Aspect: How Reopen executes
@@ -754,8 +754,9 @@ This situation will result in the user requiring to type the whole `add` command
 
 ===== Aspect: Data structure to support SaveTodo Command
 * **Alternative 1 (current choice):** No additional data structure is required for `SaveTodo` command
-
 //end::saveTodoCommand[]
+
+//tag::load[]
 === Load friend's EateryList feature
 ==== Implementation
 
@@ -785,11 +786,11 @@ Step 5. The user then decides that he wants to change his `UserPrefs` back to hi
 
 The following sequence diagram shows how the `load` command works:
 
-image:LoadSequenceDiagram.png[]
+image:LoadSequenceDiagram.png[width=600]
 
 The following activity diagram summarizes what happens when a user executes a new `load` command:
 
-image:LoadCommitActivityDiagram.png[]
+image:LoadCommitActivityDiagram.png[width=400]
 
 ==== Design Considerations
 ===== Aspect: How Load executes
@@ -811,6 +812,7 @@ image:LoadCommitActivityDiagram.png[]
 ** Cons:
 *** Harder to implement.
 *** Might confuse the user if the UserPaths has been changed. Especially if the friend's EateryList is similar to the user (i.e. same school).
+//end::load[]
 
 === Logging
 
